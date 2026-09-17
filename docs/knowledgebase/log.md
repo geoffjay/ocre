@@ -1,5 +1,8 @@
 # Knowledge Base Update Log
 
+## 2026-09-17 (site publishing)
+* **Build**: Added `.github/workflows/site.yml` — CI to publish the knowledge base site to GitHub Pages at `geoffjay.github.io/ocre`. Builds in a `rust:1` container (`make deps` cargo-installs `okf` from the geoffjay/okf fork — `/usr/local/cargo/bin` is already on the container's PATH so no PATH step is needed), then `make site` renders `docs/knowledgebase/site` (gitignored) and `upload-pages-artifact`/`deploy-pages` publish it. Triggers: pushes to `main` touching `docs/knowledgebase/**`, the `Makefile`, or the workflow itself; plus `workflow_dispatch`. The generated HTML uses relative links throughout (verified), so it serves correctly under the `/ocre` subpath.
+
 ## 2026-09-17 (execution)
 * **Execution**: Plan steps 1–5 executed. Added the [platform decision record](../decisions/platform-architecture.md) (web for humans, Go agent bridge, no GUI shell v1 — founder-verified), the [comment model](../concepts/design/comment-model.md) and [agent governance constraints](../concepts/design/agent-governance.md) design docs, and the [core-loop spike report](../concepts/design/core-loop-spike.md).
 * **Build**: `spike/` in the repo — roomd (Go room server + embedded web client) and ocre-bridge (desktop bridge with MCP stdio server). Verified end-to-end 2026-09-17: share-link join, live presence, inline comments, human→agent mention loop driving real `claude -p` (planted off-by-one found both runs, threaded reply, live UI update without reload), governance enforced (advisory verdicts, mandatory severity, rate-limit 429), MCP tool list (5 tools, protocol 2025-06-18).

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ocre — review</title>
+<style>
+  :root { --bg:#0d1117; --panel:#161b22; --border:#30363d; --fg:#e6edf3; --muted:#8b949e;
+          --add:#1a4027; --del:#4a2020; --agent:#8957e5; --human:#2f81f7; --high:#f85149; --med:#d29922; --low:#3fb950; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:14px/1.45 -apple-system,BlinkMacSystemFont,Segoe UI,sans-serif; background:var(--bg); color:var(--fg); }
+  header { display:flex; justify-content:space-between; align-items:center; padding:10px 16px; border-bottom:1px solid var(--border); background:var(--panel); }
+  header h1 { font-size:15px; margin:0; font-weight:600; }
+  #presence { display:flex; gap:6px; flex-wrap:wrap; }
+  .avatar { padding:2px 8px; border-radius:10px; font-size:12px; background:#21262d; border:1px solid var(--border); }
+  .avatar.agent { border-color:var(--agent); color:#c297ff; }
+  main { max-width:900px; margin:0 auto; padding:16px; }
+  .file { border:1px solid var(--border); border-radius:6px; margin-bottom:16px; overflow:hidden; }
+  .file h2 { font:600 13px ui-monospace,monospace; margin:0; padding:8px 12px; background:var(--panel); border-bottom:1px solid var(--border); }
+  table.diff { border-collapse:collapse; width:100%; font:12.5px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace; }
+  table.diff td { padding:0 8px; white-space:pre; vertical-align:top; }
+  td.num { width:1%; color:var(--muted); text-align:right; user-select:none; border-right:1px solid var(--border); }
+  tr.add td.code { background:var(--add); } tr.del td.code { background:var(--del); }
+  tr.ctx td.code { color:#c9d1d9; }
+  td.code { width:100%; cursor:pointer; }
+  .cmt { border-left:3px solid var(--human); background:var(--panel); margin:4px 12px 4px 40px; border-radius:4px; padding:8px 10px; font-size:13px; }
+  .cmt.agent { border-left-color:var(--agent); }
+  .cmt .meta { font-size:11px; color:var(--muted); margin-bottom:4px; }
+  .cmt .meta .sev { font-weight:600; margin-left:6px; }
+  .sev.high { color:var(--high); } .sev.medium { color:var(--med); } .sev.low { color:var(--low); }
+  .cmt .body { white-space:pre-wrap; }
+  .cmt.resolved { opacity:.55; }
+  .cmt .actions { margin-top:6px; }
+  .cmt button { font-size:11px; background:#21262d; color:var(--fg); border:1px solid var(--border); border-radius:4px; padding:2px 8px; cursor:pointer; margin-right:6px; }
+  form.cmt-form { margin:4px 12px 8px 40px; display:none; }
+  form.cmt-form.open { display:block; }
+  form.cmt-form textarea { width:100%; min-height:54px; background:#0b0f14; color:var(--fg); border:1px solid var(--border); border-radius:4px; padding:6px; font:13px/1.4 inherit; resize:vertical; }
+  form.cmt-form .row { margin-top:4px; display:flex; gap:8px; align-items:center; }
+  form.cmt-form select, form.cmt-form input[type=text] { background:#0b0f14; color:var(--fg); border:1px solid var(--border); border-radius:4px; padding:3px 6px; font-size:12px; }
+  form.cmt-form button { background:#238636; border:none; color:#fff; border-radius:4px; padding:4px 12px; font-size:12px; cursor:pointer; }
+  form.cmt-form button.cancel { background:#21262d; border:1px solid var(--border); }
+  #verdicts { margin-top:18px; padding:12px; border:1px solid var(--border); border-radius:6px; background:var(--panel); }
+  #verdicts button { font-size:13px; padding:6px 14px; border-radius:4px; cursor:pointer; border:1px solid var(--border); background:#21262d; color:var(--fg); margin-right:8px; }
+  #verdict-list { margin-top:8px; font-size:12px; color:var(--muted); }
+  .toast { position:fixed; bottom:16px; right:16px; background:#21262d; border:1px solid var(--border); border-radius:6px; padding:8px 12px; font-size:12px; opacity:0; transition:opacity .2s; }
+  .toast.show { opacity:1; }
+</style>
+</head>
+<body>
+<header>
+  <h1 id="title">review</h1>
+  <div id="presence"></div>
+</header>
+<main>
+  <div id="files"></div>
+  <div id="verdicts">
+    <div>
+      <button onclick="verdict('approve')">✓ Approve</button>
+      <button onclick="verdict('request_changes')">✗ Request changes</button>
+    </div>
+    <div id="verdict-list"></div>
+  </div>
+</main>
+<div class="toast" id="toast"></div>
+<script>
+const params = new URLSearchParams(location.search);
+const room = location.pathname.split('/').pop();
+let you = null, review = null, comments = [], actors = [], socket = null;
+const $ = sel => document.querySelector(sel);
+
+function toast(msg) {
+  const t = $('#toast'); t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+function connect() {
+  const q = new URLSearchParams({ t: params.get('t') || 'human', name: params.get('name') || 'Anonymous' });
+  socket = new WebSocket(`ws://${location.host}/api/rooms/${room}/ws?${q}`);
+  socket.onmessage = m => {
+    const ev = JSON.parse(m.data);
+    switch (ev.type) {
+      case 'state':
+        you = ev.you; review = ev.review; comments = ev.comments; actors = ev.actors;
+        token = ev.token; verdictLog = ev.verdicts || [];
+        render(); break;
+      case 'comment.created': comments.push(ev.comment); render(); toast(`${ev.comment.author.display_name} commented`); break;
+      case 'comment.resolved': { const c = comments.find(c => c.id === ev.comment.id); if (c) { c.resolved_by = ev.comment.resolved_by; c.resolved_at = ev.comment.resolved_at; c.resolution_reason = ev.comment.resolution_reason; render(); } break; }
+      case 'verdict.recorded': renderVerdicts([ev.verdict]); break;
+      case 'presence.joined': if (!actors.some(a => a.id === ev.actor.id)) actors.push(ev.actor); renderPresence(); toast(`${ev.actor.display_name} joined`); break;
+      case 'presence.left': actors = actors.filter(a => a.id !== ev.actor.id); renderPresence(); break;
+    }
+  };
+  socket.onclose = () => setTimeout(connect, 1000);
+}
+
+async function api(path, body) {
+  const res = await fetch(path, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'X-ocre-Token': you ? you.__tok || token : token },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) { toast(await res.text()); return null; }
+  return res.json();
+}
+
+let token = '';
+function setToken(t) { token = t; }
+
+function render() {
+  if (!review) return;
+  $('#title').textContent = review.title + ' — ' + review.id;
+  const files = $('#files'); files.innerHTML = '';
+  for (const f of review.files) {
+    const fileEl = document.createElement('div'); fileEl.className = 'file';
+    const h = document.createElement('h2'); h.textContent = f.path; fileEl.appendChild(h);
+    const table = document.createElement('table'); table.className = 'diff';
+    const maxN = Math.max(...f.lines.map(l => l.n || l.old_n || 0));
+    for (const line of f.lines) {
+      const tr = document.createElement('tr'); tr.className = line.type;
+      tr.innerHTML = `<td class="num">${line.n || line.old_n}</td><td class="code">${esc(line.text)}</td>`;
+      tr.onclick = () => openForm(fileEl, tr, f.path, line);
+      table.appendChild(tr);
+      const anchored = comments.filter(c => c.anchor.kind === 'line' && c.anchor.file_path === f.path && (c.anchor.line_start === line.n || c.anchor.line_start === line.old_n));
+      for (const c of anchored) table.appendChild(commentEl(c));
+    }
+    // file-level comments
+    for (const c of comments.filter(c => c.anchor.kind === 'file' && c.anchor.file_path === f.path)) fileEl.appendChild(commentEl(c));
+    fileEl.appendChild(table);
+    files.appendChild(fileEl);
+  }
+  // review-level comments (including agent replies) render in a session feed
+  const feed = document.createElement('div'); feed.className = 'file';
+  const fh = document.createElement('h2'); fh.textContent = 'Review discussion'; feed.appendChild(fh);
+  for (const c of comments.filter(c => c.anchor.kind === 'review')) feed.appendChild(commentEl(c));
+  $('#files').appendChild(feed);
+  renderPresence(); renderVerdicts();
+}
+
+function esc(s) { return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+
+function commentEl(c) {
+  const el = document.createElement('div');
+  el.className = 'cmt ' + c.author.kind + (c.resolved_by ? ' resolved' : '');
+  const sev = c.severity ? ` <span class="sev ${c.severity}">${c.severity}</span>` : '';
+  const res = c.resolved_by ? ` · resolved (${c.resolution_reason})` : '';
+  const at = c.addressed_to ? ` → @${actorName(c.addressed_to)}` : '';
+  el.innerHTML = `<div class="meta">${c.author.display_name}${sev}${at} · ${c.created_at}${res}</div><div class="body">${esc(c.body)}</div>`;
+  if (!c.resolved_by) {
+    const actions = document.createElement('div'); actions.className = 'actions';
+    const b = document.createElement('button'); b.textContent = 'resolve (addressed)';
+    b.onclick = async () => { await api(`/api/rooms/${room}/comments/${c.id}/resolve`, { reason: 'addressed' }); };
+    const r = document.createElement('button'); r.textContent = 'reply';
+    r.onclick = () => {
+      const cmt = comments.find(cc => cc.id === c.id);
+      const form = el.querySelector('form.cmt-form') || buildReplyForm(c);
+      el.appendChild(form); form.classList.add('open');
+    };
+    actions.appendChild(b); actions.appendChild(r); el.appendChild(actions);
+  }
+  return el;
+}
+
+function actorName(id) { const a = actors.find(a => a.id === id); return a ? a.display_name : id; }
+
+function buildReplyForm(parent) {
+  const form = document.createElement('form'); form.className = 'cmt-form';
+  form.innerHTML = `<textarea placeholder="reply…"></textarea>
+    <div class="row">
+      <select class="sev"><option value="">severity…</option><option>high</option><option>medium</option><option>low</option></select>
+      <button>Reply</button>
+      <button type="button" class="cancel">✕</button>
+    </div>`;
+  form.onsubmit = async e => {
+    e.preventDefault();
+    const body = form.querySelector('textarea').value.trim();
+    if (!body) return;
+    const sev = form.querySelector('.sev').value;
+    const c = await api(`/api/rooms/${room}/comments`, {
+      anchor: { kind: 'review' }, body, parent_id: parent.id, severity: sev || undefined,
+    });
+    if (c) form.remove();
+  };
+  form.querySelector('.cancel').onclick = () => form.remove();
+  return form;
+}
+
+function openForm(fileEl, tr, path, line) {
+  document.querySelectorAll('form.cmt-form.open').forEach(f => f.remove());
+  const form = document.createElement('form'); form.className = 'cmt-form open';
+  const n = line.n || line.old_n;
+  form.innerHTML = `<textarea placeholder="comment on ${path}:${n}…"></textarea>
+    <div class="row">
+      <select class="sev"><option value="">severity…</option><option>high</option><option>medium</option><option>low</option></select>
+      <select class="addr"><option value="">addressed to…</option>${actors.filter(a => a.id !== you.id).map(a => `<option value="${a.id}">${a.display_name} (${a.kind})</option>`).join('')}</select>
+      <button>Comment</button>
+      <button type="button" class="cancel">✕</button>
+    </div>`;
+  form.onsubmit = async e => {
+    e.preventDefault();
+    const body = form.querySelector('textarea').value.trim();
+    if (!body) return;
+    const sev = form.querySelector('.sev').value;
+    const addr = form.querySelector('.addr').value;
+    const c = await api(`/api/rooms/${room}/comments`, {
+      anchor: { kind: 'line', file_path: path, line_start: n, commit_sha: review.sha },
+      body, severity: sev || undefined, addressed_to: addr || undefined,
+    });
+    if (c) form.remove();
+  };
+  form.querySelector('.cancel').onclick = () => form.remove();
+  tr.after(form);
+}
+
+function renderPresence() {
+  const p = $('#presence'); p.innerHTML = '';
+  for (const a of actors) {
+    const el = document.createElement('span');
+    el.className = 'avatar ' + a.kind;
+    el.textContent = a.kind === 'agent' ? `🤖 ${a.display_name}` : a.display_name;
+    p.appendChild(el);
+  }
+}
+
+function renderVerdicts(incoming) {
+  if (incoming) { verdictLog.push(...incoming); }
+  const list = $('#verdict-list'); list.innerHTML = '';
+  for (const v of verdictLog) {
+    const el = document.createElement('div');
+    el.textContent = `${v.by.display_name} (${v.by.kind}) — ${v.type}${v.advisory ? ' (advisory)' : ''} · ${v.at}`;
+    list.appendChild(el);
+  }
+}
+let verdictLog = [];
+
+async function verdict(type) {
+  const v = await api(`/api/rooms/${room}/verdicts`, { type });
+  if (v) toast(`${type === 'approve' ? '✓' : '✗'} ${v.advisory ? 'recorded (advisory)' : 'recorded'}`);
+}
+
+connect();
+</script>
+</body>
+</html>
