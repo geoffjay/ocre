@@ -51,10 +51,13 @@ to touch the KB on every edit.
 * [Collaborative review prior art](concepts/research/collaborative-review-prior-art.md) - standalone tool history, multiplayer topologies, and the confirmed live-review gap.
 * [Platform tradeoffs](concepts/research/platform-tradeoffs.md) - desktop vs web evidence, assembled but not decided.
 * [Agent participation model](concepts/research/agent-participation.md) - how user-owned agents become live review participants: desktop bridge, BYO runtime and credentials, MCP/ACP composition.
+* [Comment model](concepts/design/comment-model.md) - the first-class data model: comment anchors, authorship, verdicts, cross-references; drives sync, UI, and the bridge's MCP tools.
+* [Agent governance constraints](concepts/design/agent-governance.md) - volume-control requirements for agent participants: advisory verdicts, severity, rate buckets, address-rate metrics.
+* [Core-loop spike report](concepts/design/core-loop-spike.md) - what the roomd + ocre-bridge prototype proved end-to-end, and its known limitations.
 
 ## Decisions
 
-* _(empty — add decision docs here)_
+* [Platform architecture](decisions/platform-architecture.md) - web for humans, Go agent bridge on the owner's desktop, no GUI shell for v1; founder-verified.
 
 ## Patterns
 
@@ -67,3 +70,4 @@ to touch the KB on every edit.
 ## References
 
 * [OKF spec](references/okf-spec.md) - pointer to the Open Knowledge Format v0.2 specification.
+* [Subscription ToS clauses](references/research/subscription-tos-clauses.md) - verbatim ToS text for legal review of bridge-driven subscription auth.

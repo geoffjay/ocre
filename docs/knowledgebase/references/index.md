@@ -10,4 +10,4 @@ references for the ocre project.
 * [Greptile noise postmortem](research/greptile-noise-postmortem.md) - first-party AI review noise case study: what failed, what worked.
 * [Socket Mode and Gateway patterns](research/socket-mode-gateway-patterns.md) - outbound-WebSocket bot connection patterns (Slack, Discord).
 * [Agent runtime surfaces](research/agent-runtime-surfaces.md) - driving Claude Code, Codex, Gemini CLI, opencode, and ACP agents with the user's own credentials.
-* [MCP and ACP protocols](research/mcp-acp-protocols.md) - the protocol layer for the agent bridge: review actions as MCP tools, agents via ACP.
+* [Subscription ToS clauses](research/subscription-tos-clauses.md) - verbatim ToS text for legal review of bridge-driven subscription auth.

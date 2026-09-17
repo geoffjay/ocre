@@ -97,6 +97,25 @@ Open questions carried forward (full lists in each concept doc):
 * Packmind's 10k-PR analysis figures were read at research time but its
   URL was not captured — re-find before citing as primary.
 
+## Gating: do the open questions block the next steps?
+
+Mostly no — the next steps are the *method* for answering most open
+questions. Only three items need deliberate sequencing:
+
+| Open question | Blocks what | Disposition |
+|---|---|---|
+| Platform decision record | Nothing (direction agreed) | It *is* step 1 — a recording action, not research |
+| What the node stores (durable vs local-first vs federated) | Decision doc completeness; not the prototype | Needs a *provisional* choice in the decision doc (server-held state for v1, escape hatches recorded), not a final answer — the comment model and room addressing survive any storage change |
+| Gemini headless auth; session shape | Nothing before the spike | Answered empirically by step 4; risk contained (Claude Code and Codex have clean paths) |
+| **ToS for subscription reuse via bridge** | **Shipping the bridge, not building it** | The one question neither research nor prototyping answers. Driving your own runtime with your own credentials locally is today's normal usage — spike freely; but run step 6 in parallel *now* because legal latency is external and must not be discovered late |
+| Agent identity/pacing | Nothing | Designed by steps 2, 3, and 5 as forced by the comment model and volume controls |
+| No public data (comments-per-PR, fatigue, co-review patterns) | Nothing, ever — by research | These are permanently unanswerable by more research; ocre must exist to generate the data. Motivation, not a gate |
+| Traversable URL; enterprise posture | Trivial | Founder inputs, ask in passing; drop Traversable if unimportant |
+| Packmind URL | Citing it | Hygiene — re-find before use only |
+
+Net: proceed to steps 1–5 immediately; start step 6 in parallel; collect
+the two founder inputs opportunistically.
+
 ## Proposed next steps
 
 1. **Write the platform decision doc** (decisions/) — web platform for
@@ -124,8 +143,31 @@ Open questions carried forward (full lists in each concept doc):
 
 ## Status
 
-Founder reviewed the 2026-09-16 research on 2026-09-17: vision confirmed,
-web-for-humans agreed, agent constraints set. Remaining to exit the phase:
-the platform decision record, the comment-model design, and the bridge
-spike validating the three open risks (Gemini headless auth, ToS for
-subscription reuse, session shape).
+**Executed 2026-09-17 — steps 1–5 complete, step 6 in progress:**
+
+1. ✅ [Platform decision record](/decisions/platform-architecture.md) written
+   and founder-verified.
+2. ✅ Core-loop prototype built and verified end-to-end — see
+   [core-loop spike report](/concepts/design/core-loop-spike.md):
+   share-link join, live presence, inline comments, human→agent mention
+   loop with real `claude -p` (found the planted bug both runs,
+   threaded reply, live UI update), governance enforced (advisory
+   verdicts, mandatory severity, rate-limit 429).
+3. ✅ [Comment model](/concepts/design/comment-model.md) designed and
+   implemented as the spike's wire schema + MCP tool schema.
+4. ✅ [Bridge spike](/concepts/design/core-loop-spike.md) in Go —
+   outbound-WS-only, drives the owner's runtime with env-sanitized
+   subscription auth; MCP stdio surface verified (5 tools, protocol
+   2025-06-18).
+5. ✅ [Agent governance constraints](/concepts/design/agent-governance.md)
+   designed and enforced at the action boundary.
+6. 🔶 ToS clauses assembled for legal review —
+   [subscription ToS clauses](/references/research/subscription-tos-clauses.md)
+   (verbatim quotes, risk classes, mitigations). **Formal legal review is
+   the remaining gate before shipping the bridge.**
+
+Next: wire the runtime's MCP tool-use (`--mcp-config`) so the agent posts
+findings itself; persistence + reconnect replay; OAuth device flow;
+multi-owner agent identity; Gemini CLI test (blocked on workstation
+tooling). The research phase's exit criteria are met; the project moves
+from research to build.
