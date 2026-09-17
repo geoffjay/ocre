@@ -1,0 +1,46 @@
+site:
+  title: "Orchestrated Code Review Environment"
+  theme: nord
+
+  themes:
+    - id: nord
+      scheme: light
+      colors:
+        surface: "#eceff4"
+        ink: "#2e3440"
+        edge: "#d8dee9"
+        link: "#5e81ac"
+        panel-bg: "#e5e9f0"
+        code-bg: "#e5e9f0"
+        mermaid-bg: "#e5e9f0"
+        tier-human: "#4f6f52"
+    - id: nord
+      label: "Nord"
+      scheme: dark
+      colors:
+        surface: "#2e3440"
+        ink: "#eceff4"
+        edge: "#4c566a"
+        link: "#88c0d0"
+        panel-bg: "#3b4252"
+        code-bg: "#3b4252"
+        mermaid-bg: "#3b4252"
+        tier-human: "#a3be8c"
+
+  fonts:
+    # CSS font-family lists for the two typography tokens.
+    body: "MapleMono, Georgia, serif"
+    code: "MapleMono, ui-monospace, monospace"
+
+    files:
+      - family: MapleMono
+        file: MapleMono-Regular.ttf.woff2
+        weight: 400
+      - family: MapleMono
+        file: MapleMono-Italic.ttf.woff2
+        weight: 400
+        style: italic
+      - family: MapleMono
+        file: MapleMono-Bold.ttf.woff2
+        weight: 700
+        style: oblique

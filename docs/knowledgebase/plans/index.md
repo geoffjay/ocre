@@ -2,4 +2,4 @@
 
 plans for the ocre project.
 
-* _(empty — add plans docs here)_
+* [Research phase](research-phase.md) - status, synthesis, and next steps for the initial research phase.

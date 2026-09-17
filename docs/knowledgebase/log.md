@@ -1,4 +1,12 @@
 # Knowledge Base Update Log
 
+## 2026-09-17
+* **Update**: Founder confirmed the [product vision](concepts/product-vision.md) and set hard agent constraints: no built/hosted agents, no token billing, agents on the user's desktop, BYOK must not hurt UX. Added [agent participation model](concepts/research/agent-participation.md) - the precedented composition: outbound-WebSocket desktop bridge + device-flow auth + headless/ACP runtime driving with subscription credentials + local stdio MCP review tools; single-Go-binary bridge, no GUI shell needed (Wails v3 beta / Tauri sidecar / Electron documented as later options).
+* **Creation**: Added three reference docs: [Socket Mode and Gateway patterns](references/research/socket-mode-gateway-patterns.md), [agent runtime surfaces](references/research/agent-runtime-surfaces.md), [MCP and ACP protocols](references/research/mcp-acp-protocols.md).
+* **Update**: Updated the [research phase plan](plans/research-phase.md) - 2026-09-17 agent-participation round, revised synthesis, open risks, and next steps (platform decision record, core-loop prototype, comment model, Go bridge spike, ToS review).
+
 ## 2026-09-16
+* **Creation**: Added six reference docs under `references/research/` for the load-bearing primary sources (SmartBear/Cisco study, Sadowski et al. Google study, Microsoft review studies, 2026 arXiv agentic review studies, Greptile noise postmortem, Sonar State of Code 2026).
+* **Creation**: Added four research concept docs under `concepts/research/`: [code review capacity](concepts/research/code-review-capacity.md), [AI review noise](concepts/research/ai-review-noise.md), [collaborative review prior art](concepts/research/collaborative-review-prior-art.md), and [platform tradeoffs](concepts/research/platform-tradeoffs.md). Each carries per-claim source attribution and was verified against primary sources where reachable.
+* **Creation**: Added [ocre product vision](concepts/product-vision.md) - the founding vision, recorded as stated by the founder.
 * **Scaffold**: Created the ocre knowledge base at `docs/knowledgebase/` using the `okf-ify` skill. Initial structure: `index.md`, `log.md`, and concept directories (concepts, decisions, patterns, references, plans). OKF v0.2 conformant.

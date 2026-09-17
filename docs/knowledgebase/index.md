@@ -45,7 +45,12 @@ to touch the KB on every edit.
 
 ## Concepts
 
-* _(empty — add concept docs here)_
+* [ocre product vision](concepts/product-vision.md) - what ocre is: a standalone, interactive, collaborative code review system for humans and AI agents.
+* [Human code review capacity](concepts/research/code-review-capacity.md) - empirical evidence on human review limits and the volume problem.
+* [AI review noise](concepts/research/ai-review-noise.md) - evidence that agent review output exceeds human capacity, and mitigation patterns.
+* [Collaborative review prior art](concepts/research/collaborative-review-prior-art.md) - standalone tool history, multiplayer topologies, and the confirmed live-review gap.
+* [Platform tradeoffs](concepts/research/platform-tradeoffs.md) - desktop vs web evidence, assembled but not decided.
+* [Agent participation model](concepts/research/agent-participation.md) - how user-owned agents become live review participants: desktop bridge, BYO runtime and credentials, MCP/ACP composition.
 
 ## Decisions
 
@@ -57,7 +62,7 @@ to touch the KB on every edit.
 
 ## Plans
 
-* _(empty — add plan docs here)_
+* [Research phase](plans/research-phase.md) - status, synthesis, and next steps for the initial research phase.
 
 ## References
 
