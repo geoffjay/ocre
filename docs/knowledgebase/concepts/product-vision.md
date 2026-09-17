@@ -2,10 +2,18 @@
 type: Concept
 title: ocre product vision
 description: What ocre is — a standalone, interactive, collaborative code review system where humans and AI agents review together.
-tags: [vision, product, code-review, collaboration]
+tags:
+  - vision
+  - product
+  - code-review
+  - collaboration
 status: stable
-generated: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
-verified: { by: human:geoff, at: 2026-09-17T03:32:36Z }
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
+verified:
+  by: human:geoff
+  at: "2026-09-17T03:32:36Z"
 ---
 
 # ocre product vision

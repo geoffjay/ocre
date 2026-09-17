@@ -2,10 +2,20 @@
 type: Decision
 title: Platform architecture - web for humans, Go agent bridge, no GUI shell
 description: The founding platform decision - web platform for human participants, a single-Go-binary agent bridge on the agent owner's desktop, GUI shells deferred.
-tags: [decision, platform, architecture, web, bridge, go]
+tags:
+  - decision
+  - platform
+  - architecture
+  - web
+  - bridge
+  - go
 status: stable
-generated: { by: omp-agent/glm-5.3, at: 2026-09-17T04:56:21Z }
-verified: { by: human:geoff, at: 2026-09-17T04:52:04Z }
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-17T04:56:21Z"
+verified:
+  by: human:geoff
+  at: "2026-09-17T04:52:04Z"
 sources:
   - id: platform-tradeoffs
     title: ocre KB - Desktop vs web platform tradeoffs (evidence base)

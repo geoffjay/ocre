@@ -3,9 +3,18 @@ type: Reference
 title: Greptile — How to Make LLMs Shut Up (2024-12-18)
 description: First-party postmortem on AI review comment noise; what failed (prompting, LLM-as-judge) and what worked (per-team embedding-cluster filters).
 resource: https://www.greptile.com/blog/make-llms-shut-up
-tags: [reference, research, ai, code-review, noise]
-generated: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
-verified: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
+tags:
+  - reference
+  - research
+  - ai
+  - code-review
+  - noise
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
+verified:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
 ---
 
 # Greptile — How to Make LLMs Shut Up

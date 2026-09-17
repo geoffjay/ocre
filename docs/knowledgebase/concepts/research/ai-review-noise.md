@@ -2,16 +2,25 @@
 type: Concept
 title: AI review output volume and the noise problem
 description: Evidence that AI/agent review output exceeds human capacity, and the mitigation patterns tools actually use.
-tags: [research, ai, code-review, noise, agents]
+tags:
+  - research
+  - ai
+  - code-review
+  - noise
+  - agents
 status: stable
-generated: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
-verified: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
+verified:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
 sources:
   - id: greptile-postmortem
     title: "Greptile: How to Make LLMs Shut Up (noise postmortem)"
     resource: https://www.greptile.com/blog/make-llms-shut-up
     author: human:daksh-gupta
-    last_modified: 2024-12-18T00:00:00Z
+    last_modified: "2024-12-18T00:00:00Z"
   - id: copilot-ga
     title: GitHub changelog — Copilot code review GA (2025-04-04)
     resource: https://github.blog/changelog/2025-04-04-copilot-code-review-now-generally-available/
@@ -28,13 +37,13 @@ sources:
     title: Sonar State of Code Developer Survey (n=1,149, fieldwork Oct 2025)
     resource: https://www.sonarsource.com/state-of-code-developer-survey-report.pdf
   - id: arxiv-synergy
-    title: "Zhong et al., Human-AI Synergy in Agentic Code Review (arXiv 2603.15911)"
+    title: Zhong et al., Human-AI Synergy in Agentic Code Review (arXiv 2603.15911)
     resource: https://arxiv.org/abs/2603.15911
   - id: arxiv-notreviews
-    title: "Duma et al., These Aren't the Reviews You're Looking For (arXiv 2605.02273)"
+    title: Duma et al., These Aren't the Reviews You're Looking For (arXiv 2605.02273)
     resource: https://arxiv.org/abs/2605.02273
   - id: arxiv-empirical
-    title: "Chowdhury et al., From Industry Claims to Empirical Reality (arXiv 2604.03196)"
+    title: Chowdhury et al., From Industry Claims to Empirical Reality (arXiv 2604.03196)
     resource: https://arxiv.org/abs/2604.03196
   - id: arxiv-conversation
     title: "Code Review is a Conversation: Toward Conversational AI Review Assistants (arXiv 2607.22095)"

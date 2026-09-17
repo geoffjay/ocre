@@ -2,10 +2,17 @@
 type: Plan
 title: Research phase — synthesis and next steps
 description: Status of the initial research phase into code review volume, AI output overload, collaboration prior art, and platform tradeoffs, with synthesis and proposed next steps.
-tags: [plan, research, phase]
+tags:
+  - plan
+  - research
+  - phase
 status: draft
-generated: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
-updated: { by: omp-agent/glm-5.3, at: 2026-09-17T03:36:04Z }
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
+updated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-17T03:36:04Z"
 ---
 
 # Research phase — synthesis and next steps
@@ -143,7 +150,7 @@ the two founder inputs opportunistically.
 
 ## Status
 
-**Executed 2026-09-17 — steps 1–5 complete, step 6 in progress:**
+**Executed 2026-09-17 — all six steps complete; the phase is closed:**
 
 1. ✅ [Platform decision record](/decisions/platform-architecture.md) written
    and founder-verified.
@@ -161,13 +168,14 @@ the two founder inputs opportunistically.
    2025-06-18).
 5. ✅ [Agent governance constraints](/concepts/design/agent-governance.md)
    designed and enforced at the action boundary.
-6. 🔶 ToS clauses assembled for legal review —
+6. ✅ ToS clauses assembled for legal review —
    [subscription ToS clauses](/references/research/subscription-tos-clauses.md)
-   (verbatim quotes, risk classes, mitigations). **Formal legal review is
-   the remaining gate before shipping the bridge.**
+   (verbatim quotes, risk classes, mitigations). **Closed by founder
+   ruling 2026-09-17: the ToS risk is accepted.** If a clause becomes a
+   real concern later, the agent interface can move to ACP-only. The
+   clause doc stays as the reference for that later decision.
 
-Next: wire the runtime's MCP tool-use (`--mcp-config`) so the agent posts
-findings itself; persistence + reconnect replay; OAuth device flow;
-multi-owner agent identity; Gemini CLI test (blocked on workstation
-tooling). The research phase's exit criteria are met; the project moves
-from research to build.
+The research phase is closed. The follow-up work — MCP tool-use wiring,
+persistence + reconnect replay, OAuth device flow, multi-owner agent
+identity, real change-sets, distribution — is planned milestone by
+milestone in the [build phase plan](/plans/build-phase.md).

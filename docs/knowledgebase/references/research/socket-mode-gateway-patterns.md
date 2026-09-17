@@ -2,9 +2,18 @@
 type: Reference
 title: Slack Socket Mode and Discord Gateway (outbound bot connection patterns)
 description: The two canonical proofs that a hosted platform can dispatch real-time events to a process on the user's machine with no inbound endpoint.
-tags: [reference, research, agents, bridge, websocket]
-generated: { by: omp-agent/glm-5.3, at: 2026-09-17T03:36:04Z }
-verified: { by: omp-agent/glm-5.3, at: 2026-09-17T03:36:04Z }
+tags:
+  - reference
+  - research
+  - agents
+  - bridge
+  - websocket
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-17T03:36:04Z"
+verified:
+  by: omp-agent/glm-5.3
+  at: "2026-09-17T03:36:04Z"
 ---
 
 # Slack Socket Mode and Discord Gateway

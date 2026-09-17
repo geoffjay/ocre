@@ -2,9 +2,18 @@
 type: Reference
 title: 2026 arXiv empirical studies of agentic code review
 description: The AIDev-dataset studies quantifying agent review volume, human oversight gaps, and CRA-only outcomes.
-tags: [reference, research, ai, code-review, agents]
-generated: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
-verified: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
+tags:
+  - reference
+  - research
+  - ai
+  - code-review
+  - agents
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
+verified:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
 ---
 
 # 2026 arXiv empirical studies of agentic code review

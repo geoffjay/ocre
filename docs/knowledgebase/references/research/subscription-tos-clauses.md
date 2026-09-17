@@ -2,9 +2,16 @@
 type: Reference
 title: Subscription ToS clauses for bridge-driven runtimes
 description: Verbatim ToS/policy text assembled for legal review - the clauses governing a third-party local bridge driving Claude Code / Codex CLI with the user's consumer subscription.
-tags: [reference, tos, legal, agents, byok]
+tags:
+  - reference
+  - tos
+  - legal
+  - agents
+  - byok
 status: draft
-generated: { by: omp-agent/glm-5.3, at: 2026-09-17T16:23:37Z }
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-17T16:23:37Z"
 sources:
   - id: anthropic-consumer-tos
     title: Anthropic Consumer Terms of Service
@@ -23,7 +30,12 @@ sources:
 
 # Subscription ToS clauses for bridge-driven runtimes
 
-Research-assembled for formal legal review (**not legal conclusions**).
+Research-assembled for legal review (**not legal conclusions**).
+**Status 2026-09-17: the founder read these clauses and accepted the
+risk.** Building on subscription-auth driving proceeds; the ACP-only
+interface is the recorded fallback if a clause becomes a real concern.
+This doc stays as the input for any future formal legal review.
+
 The question: may ocre's bridge — a third-party local tool — drive the
 user's own Claude Code / Codex CLI session using the user's consumer
 subscription, and relay other participants' review prompts through it?

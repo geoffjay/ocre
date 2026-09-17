@@ -3,9 +3,18 @@ type: Reference
 title: Sonar — State of Code Developer Survey (2026)
 description: n=1,149 developer survey quantifying the trust-vs-verification gap and the review bottleneck for AI code.
 resource: https://www.sonarsource.com/state-of-code-developer-survey-report.pdf
-tags: [reference, research, ai, survey, code-review]
-generated: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
-verified: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
+tags:
+  - reference
+  - research
+  - ai
+  - survey
+  - code-review
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
+verified:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
 ---
 
 # Sonar — State of Code Developer Survey (2026)

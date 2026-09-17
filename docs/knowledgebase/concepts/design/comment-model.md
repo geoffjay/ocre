@@ -2,10 +2,18 @@
 type: Concept
 title: Comment model
 description: The first-class data model for ocre review artifacts - comment anchors, authorship, verdicts, and cross-references - which drives the sync layer, web UI, and the bridge's MCP tool schema.
-tags: [design, comment-model, data-model, mcp]
+tags:
+  - design
+  - comment-model
+  - data-model
+  - mcp
 status: stable
-generated: { by: omp-agent/glm-5.3, at: 2026-09-17T04:56:21Z }
-verified: { by: omp-agent/glm-5.3, at: 2026-09-17T04:56:21Z }
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-17T04:56:21Z"
+verified:
+  by: omp-agent/glm-5.3
+  at: "2026-09-17T04:56:21Z"
 sources:
   - id: vision
     title: ocre KB - Product vision (comment/verdict requirements)

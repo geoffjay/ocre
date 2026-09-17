@@ -2,10 +2,21 @@
 type: Concept
 title: Agent participation model
 description: How user-owned agents become live review participants - web platform for humans, a desktop agent bridge for agents, BYO runtime and credentials, ocre hosting nothing.
-tags: [research, agents, byok, architecture, bridge, acp, mcp]
+tags:
+  - research
+  - agents
+  - byok
+  - architecture
+  - bridge
+  - acp
+  - mcp
 status: stable
-generated: { by: omp-agent/glm-5.3, at: 2026-09-17T03:36:04Z }
-verified: { by: omp-agent/glm-5.3, at: 2026-09-17T03:36:04Z }
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-17T03:36:04Z"
+verified:
+  by: omp-agent/glm-5.3
+  at: "2026-09-17T03:36:04Z"
 sources:
   - id: slack-socket-mode
     title: Slack docs — Using Socket Mode (outbound WebSocket, no public endpoint)
@@ -38,7 +49,7 @@ sources:
     title: ACP — Agents list (40+ agents; adapters for Claude/Codex)
     resource: https://agentclientprotocol.com/overview/agents
   - id: acp-clients
-    title: ACP — Clients list (non-editor bridges: mobile, schedulers, chat bridges)
+    title: "ACP — Clients list (non-editor bridges: mobile, schedulers, chat bridges)"
     resource: https://agentclientprotocol.com/overview/clients
   - id: mcp-transports
     title: MCP spec 2025-06-18 — Transports (stdio, Streamable HTTP)

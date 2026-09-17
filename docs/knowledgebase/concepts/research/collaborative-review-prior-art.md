@@ -2,10 +2,19 @@
 type: Concept
 title: Collaborative review prior art
 description: Prior art for interactive/collaborative code review — standalone tool history, multiplayer tech, session topologies, and the confirmed gap.
-tags: [research, prior-art, collaboration, multiplayer, crdt]
+tags:
+  - research
+  - prior-art
+  - collaboration
+  - multiplayer
+  - crdt
 status: stable
-generated: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
-verified: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
+verified:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
 sources:
   - id: gerrit-site
     title: Gerrit Code Review (project site)
@@ -26,10 +35,10 @@ sources:
     title: GitHub docs — About pull request reviews
     resource: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews
   - id: figma-multiplayer
-    title: "Figma — How Figma's multiplayer technology works (2019-10-16)"
+    title: Figma — How Figma's multiplayer technology works (2019-10-16)
     resource: https://www.figma.com/blog/how-figmas-multiplayer-technology-works/
   - id: kleppmann-ot-crdt
-    title: "Kleppmann et al. — Interactive Applications for the Arma... (OT vs CRDT comparison)"
+    title: Kleppmann et al. — Interactive Applications for the Arma... (OT vs CRDT comparison)
     resource: https://arxiv.org/pdf/1810.02137
   - id: partykit-docs
     title: PartyKit docs — How PartyKit works (room = Durable Object, same-id routing)

@@ -3,8 +3,14 @@ type: Reference
 title: Sadowski et al. — Modern Code Review at Google (ICSE-SEIP 2018)
 description: Industrial-scale data on change size, review latency, and reviewer composition at Google.
 resource: https://sback.it/publications/icse2018seip.pdf
-tags: [reference, research, code-review, capacity]
-generated: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
+tags:
+  - reference
+  - research
+  - code-review
+  - capacity
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
 ---
 
 # Sadowski et al. — Modern Code Review: A Case Study at Google

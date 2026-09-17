@@ -2,10 +2,18 @@
 type: Concept
 title: Agent governance constraints
 description: The volume-control and participation constraints every agent participant must satisfy on the shared live surface - severity gating, single-summary defaults, rate buckets, and address-rate metrics.
-tags: [design, agents, governance, noise]
+tags:
+  - design
+  - agents
+  - governance
+  - noise
 status: stable
-generated: { by: omp-agent/glm-5.3, at: 2026-09-17T04:56:21Z }
-verified: { by: omp-agent/glm-5.3, at: 2026-09-17T04:56:21Z }
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-17T04:56:21Z"
+verified:
+  by: omp-agent/glm-5.3
+  at: "2026-09-17T04:56:21Z"
 sources:
   - id: ai-review-noise
     title: ocre KB - AI review noise (evidence for every constraint below)

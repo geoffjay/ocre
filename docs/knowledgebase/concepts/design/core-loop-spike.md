@@ -2,10 +2,19 @@
 type: Concept
 title: Core-loop spike report
 description: What the core-loop prototype (roomd + ocre-bridge) proved, what it verified, and its known limitations - the plan's step 2/4 validation.
-tags: [spike, prototype, verification, bridge, core-loop]
+tags:
+  - spike
+  - prototype
+  - verification
+  - bridge
+  - core-loop
 status: stable
-generated: { by: omp-agent/glm-5.3, at: 2026-09-17T16:23:37Z }
-verified: { by: omp-agent/glm-5.3, at: 2026-09-17T16:23:37Z }
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-17T16:23:37Z"
+verified:
+  by: omp-agent/glm-5.3
+  at: "2026-09-17T16:23:37Z"
 sources:
   - id: comment-model
     title: ocre KB - Comment model (the wire schema the spike implements)

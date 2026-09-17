@@ -2,8 +2,13 @@
 type: Reference
 title: Microsoft code review empirical studies (Bacchelli & Bird 2013; Czerwonka 2015)
 description: ICSE/IEEE studies establishing what code review is actually used for at Microsoft.
-tags: [reference, research, code-review]
-generated: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
+tags:
+  - reference
+  - research
+  - code-review
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
 ---
 
 # Microsoft code review empirical studies

@@ -2,10 +2,20 @@
 type: Concept
 title: Desktop vs web platform tradeoffs
 description: Evidence base for the desktop-vs-web platform decision for ocre — assembled, not decided.
-tags: [research, platform, desktop, web, electron, tauri]
+tags:
+  - research
+  - platform
+  - desktop
+  - web
+  - electron
+  - tauri
 status: stable
-generated: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
-verified: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
+verified:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
 sources:
   - id: figma-web
     title: Figma — Building a professional design tool on the web

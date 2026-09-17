@@ -2,9 +2,19 @@
 type: Reference
 title: MCP 2025-06-18 and ACP (protocol layer for the bridge)
 description: The two protocols the agent bridge composes - MCP for exposing review actions as tools, ACP for driving agents uniformly.
-tags: [reference, research, agents, mcp, acp, protocols]
-generated: { by: omp-agent/glm-5.3, at: 2026-09-17T03:36:04Z }
-verified: { by: omp-agent/glm-5.3, at: 2026-09-17T03:36:04Z }
+tags:
+  - reference
+  - research
+  - agents
+  - mcp
+  - acp
+  - protocols
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-17T03:36:04Z"
+verified:
+  by: omp-agent/glm-5.3
+  at: "2026-09-17T03:36:04Z"
 ---
 
 # MCP 2025-06-18 and ACP

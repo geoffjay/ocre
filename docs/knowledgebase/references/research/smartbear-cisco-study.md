@@ -3,9 +3,17 @@ type: Reference
 title: SmartBear/Cisco code review case study (2006)
 description: The largest published peer-code-review case study — source of the 200-400 LOC size cliff and inspection-rate limits.
 resource: https://static1.smartbear.co/support/media/resources/cc/episode_4_thelargestcasestudyofcodereviewever.pdf
-tags: [reference, research, code-review, capacity]
-generated: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
-verified: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
+tags:
+  - reference
+  - research
+  - code-review
+  - capacity
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
+verified:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
 ---
 
 # SmartBear/Cisco code review case study

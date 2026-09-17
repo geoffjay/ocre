@@ -65,7 +65,7 @@ to touch the KB on every edit.
 
 ## Plans
 
-* [Research phase](plans/research-phase.md) - status, synthesis, and next steps for the initial research phase.
+* [Build phase](plans/build-phase.md) - milestones M1 to M5 from the verified spike to v1; founder rulings recorded, research phase closed.
 
 ## References
 

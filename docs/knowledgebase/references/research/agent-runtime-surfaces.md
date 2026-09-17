@@ -2,9 +2,18 @@
 type: Reference
 title: Agent runtime programmatic surfaces (2026)
 description: How Claude Code, Codex CLI, Gemini CLI, opencode, and ACP agents can be driven by an external local process using the user's own subscription credentials.
-tags: [reference, research, agents, byok, acp]
-generated: { by: omp-agent/glm-5.3, at: 2026-09-17T03:36:04Z }
-verified: { by: omp-agent/glm-5.3, at: 2026-09-17T03:36:04Z }
+tags:
+  - reference
+  - research
+  - agents
+  - byok
+  - acp
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-17T03:36:04Z"
+verified:
+  by: omp-agent/glm-5.3
+  at: "2026-09-17T03:36:04Z"
 ---
 
 # Agent runtime programmatic surfaces (2026)

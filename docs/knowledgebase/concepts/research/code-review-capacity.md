@@ -2,10 +2,18 @@
 type: Concept
 title: Human code review capacity and the volume problem
 description: Empirical evidence on how much code review humans can effectively do, and where volume breaks review.
-tags: [research, code-review, capacity, volume]
+tags:
+  - research
+  - code-review
+  - capacity
+  - volume
 status: stable
-generated: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
-verified: { by: omp-agent/glm-5.3, at: 2026-09-16T21:21:05Z }
+generated:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
+verified:
+  by: omp-agent/glm-5.3
+  at: "2026-09-16T21:21:05Z"
 sources:
   - id: smartbear-pdf
     title: "SmartBear: The Largest Case Study of Code Review, Ever (Cisco, 2006)"
@@ -21,16 +29,16 @@ sources:
     title: "Sadowski et al., Modern Code Review: A Case Study at Google (ICSE-SEIP 2018)"
     resource: https://sback.it/publications/icse2018seip.pdf
   - id: bacchelli-2013
-    title: "Bacchelli & Bird, Expectations, Outcomes, and Challenges of Modern Code Review (ICSE 2013)"
+    title: Bacchelli & Bird, Expectations, Outcomes, and Challenges of Modern Code Review (ICSE 2013)
     resource: https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ICSE202013-codereview.pdf
   - id: czerwonka-2015
-    title: "Czerwonka et al., Code Reviews Do Not Find Bugs (IEEE 2015)"
+    title: Czerwonka et al., Code Reviews Do Not Find Bugs (IEEE 2015)
     resource: https://www.microsoft.com/en-us/research/wp-content/uploads/2015/05/PID3556473.pdf
   - id: jureczko-2021
     title: "Jureczko et al., Code review effectiveness: an empirical study (IET Software 2021)"
     resource: https://digital-library.theiet.org/doi/full/10.1049/iet-sen.2020.0134
   - id: alamin-2022
-    title: "Alamin et al., Do Small Code Changes Merge Faster? (MSR 2022)"
+    title: Alamin et al., Do Small Code Changes Merge Faster? (MSR 2022)
     resource: https://arxiv.org/abs/2203.05045
   - id: jetbrains-survey
     title: JetBrains State of Developer Ecosystem (cited on Qodana code-review page)
