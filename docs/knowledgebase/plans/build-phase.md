@@ -7,10 +7,13 @@ tags:
   - build
   - v1
   - milestones
-status: draft
+status: stable
 generated:
   by: omp-agent/glm-5.3
   at: "2026-09-17T20:53:42Z"
+verified:
+  by: human:geoff
+  at: "2026-09-17T23:06:33Z"
 sources:
   - id: spike-report
     title: ocre KB - Core-loop spike report (what is already verified)

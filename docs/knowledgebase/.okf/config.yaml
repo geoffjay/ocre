@@ -1,9 +1,57 @@
 site:
   title: "Orchestrated Code Review Environment"
-  theme: nord
+  theme: tokyonight
 
+  # Two theme families coexist; `theme:` picks the default for a first
+  # visit. Readers switch in the picker at any time.
+  #
+  # Tokyo Night - palette: https://wixdaq.github.io/Tokyo-Night-Website/palette.html
+  # Dark appearance: Storm variant. Light appearance: Light variant.
+  # Tokens a variant does not define (shadow in both; edge, panel-bg,
+  # code-bg, mermaid-bg in light) keep the built-in defaults - the Light
+  # palette has no light neutral for those roles.
   themes:
+    - id: tokyonight
+      label: "Tokyo Night"
+      scheme: dark
+      colors:
+        surface: "#24283b"
+        ink: "#c0caf5"
+        edge: "#565f89"
+        link: "#7aa2f7"
+        panel-bg: "#24283b"
+        code-bg: "#24283b"
+        mermaid-bg: "#24283b"
+        tier-unverified: "#ff9e64"
+        tier-machine: "#bb9af7"
+        tier-human: "#9ece6a"
+        status-draft: "#ff9e64"
+        status-stable: "#9ece6a"
+        status-deprecated: "#f7768e"
+        status-other: "#a9b1d6"
+        sev-info: "#7dcfff"
+        sev-warning: "#ff9e64"
+        sev-error: "#f7768e"
+        danger: "#f7768e"
+    - id: tokyonight
+      scheme: light
+      colors:
+        surface: "#e6e7ed"
+        ink: "#343b58"
+        link: "#2959aa"
+        tier-unverified: "#965027"
+        tier-machine: "#5a3e8e"
+        tier-human: "#385f0d"
+        status-draft: "#965027"
+        status-stable: "#385f0d"
+        status-deprecated: "#8c4351"
+        status-other: "#6c6e75"
+        sev-info: "#006c86"
+        sev-warning: "#965027"
+        sev-error: "#8c4351"
+        danger: "#8c4351"
     - id: nord
+      label: "Nord"
       scheme: light
       colors:
         surface: "#eceff4"
@@ -15,7 +63,6 @@ site:
         mermaid-bg: "#e5e9f0"
         tier-human: "#4f6f52"
     - id: nord
-      label: "Nord"
       scheme: dark
       colors:
         surface: "#2e3440"
