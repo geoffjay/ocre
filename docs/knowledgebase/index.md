@@ -54,6 +54,7 @@ to touch the KB on every edit.
 * [Comment model](concepts/design/comment-model.md) - the first-class data model: comment anchors, authorship, verdicts, cross-references; drives sync, UI, and the bridge's MCP tools.
 * [Agent governance constraints](concepts/design/agent-governance.md) - volume-control requirements for agent participants: advisory verdicts, severity, rate buckets, address-rate metrics.
 * [Core-loop spike report](concepts/design/core-loop-spike.md) - what the roomd + ocre-bridge prototype proved end-to-end, and its known limitations.
+* [Shared substrate](concepts/design/shared-substrate.md) - proposal for the common library ocre and lore share: bridge, room protocol, MCP, governance; extraction deferred to the second consumer.
 
 ## Decisions
 
@@ -63,9 +64,14 @@ to touch the KB on every edit.
 
 * _(empty — add pattern docs here)_
 
+## Sibling projects
+
+* [lore seed bundle](../lore/index.md) - the seed knowledge base for lore, ocre's knowledge-building sibling. It lives at `docs/lore/` temporarily and moves to its own repository. The ocre KB site does not include it.
+
 ## Plans
 
 * [Build phase](plans/build-phase.md) - milestones M1 to M5 from the verified spike to v1; founder rulings recorded, research phase closed.
+* [lore research phase](../lore/plans/research-phase.md) - the plan that turns inherited ocre research into lore's foundation: OKF serving, prior art, data model, edit sync, framework ruling, spike.
 
 ## References
 

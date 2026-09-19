@@ -1,5 +1,9 @@
 # Knowledge Base Update Log
 
+## 2026-09-19
+* **Creation**: [Shared substrate](concepts/design/shared-substrate.md) - the proposal for the common library ocre and lore share. Boundary drawn by one question: would this code change if the artifact were knowledge instead of code? Spike inventory: `spike/internal/mcp` is already domain-free; the comment/diff/verdict types are ocre's. Ruling deferred to the second consumer (lore's spike); the build-phase M1 stays in the `ocre` module until then.
+* **Creation**: [lore](../lore/index.md) seed bundle at `docs/lore/` - the knowledge-building sibling application (OKF bundles as substrate, same agent constraints, same bridge pattern). Three docs: product vision, research reuse map (the inheritance contract: transfer / adapt / answer alone), and research phase plan (8 steps: OKF serving, prior art, data model, edit sync, framework ruling, spike, governance, closure). The bundle moves to its own repository when one exists; the published KB site does not include it.
+
 ## 2026-09-17
 * **Creation**: [Build phase plan](plans/build-phase.md) - milestones M1–M5 from the verified core-loop spike to v1, with acceptance criteria and dependency edges. Founder rulings recorded in the plan: ToS risk accepted (ACP-only fallback kept for later), Traversable dropped, server-side storage confirmed for v1.
 * **Update**: Added the Tokyo Night theme family to the KB site (`.okf/config.yaml`) — Storm variant for the dark appearance, Light variant for light. Nord stays; both families are in the picker, Tokyo Night is the default for a first visit. All token pairs pass WCAG AA (4.5:1+), verified in the built site.

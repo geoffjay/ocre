@@ -10,4 +10,5 @@ concepts for the ocre project.
 * [Comment model](design/comment-model.md) - the first-class data model: comment anchors, authorship, verdicts, cross-references.
 * [Agent governance constraints](design/agent-governance.md) - volume-control requirements for agent participants.
 * [Core-loop spike report](design/core-loop-spike.md) - what the roomd + ocre-bridge prototype proved end-to-end.
+* [Shared substrate](design/shared-substrate.md) - proposal for the common library ocre and lore share; the boundary between substrate and app.
 
