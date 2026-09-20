@@ -1,8 +1,13 @@
 # Knowledge Base Update Log
 
+## 2026-09-20
+* **Update**: [Shared substrate](concepts/design/shared-substrate.md) - the framework ruling is in force. The library is `roomkit`, in its own repository; extraction happens on the second running consumer (lore's spike); four boundary amendments were added.
+* **Update**: [Build phase](plans/build-phase.md) - M1 now adopts the `(scope, resource)` room address, per the ruling, so both apps converge before the `roomkit` extraction. The founder's `verified` entry was removed because the milestone content changed; it needs re-verification.
+* **Update**: Root index and log - the pointers into `docs/lore/` were retired after the lore bundle moved to its own repository.
+
 ## 2026-09-19
 * **Creation**: [Shared substrate](concepts/design/shared-substrate.md) - the proposal for the common library ocre and lore share. Boundary drawn by one question: would this code change if the artifact were knowledge instead of code? Spike inventory: `spike/internal/mcp` is already domain-free; the comment/diff/verdict types are ocre's. Ruling deferred to the second consumer (lore's spike); the build-phase M1 stays in the `ocre` module until then.
-* **Creation**: [lore](../lore/index.md) seed bundle at `docs/lore/` - the knowledge-building sibling application (OKF bundles as substrate, same agent constraints, same bridge pattern). Three docs: product vision, research reuse map (the inheritance contract: transfer / adapt / answer alone), and research phase plan (8 steps: OKF serving, prior art, data model, edit sync, framework ruling, spike, governance, closure). The bundle moves to its own repository when one exists; the published KB site does not include it.
+* **Creation**: lore seed bundle at `docs/lore/` (since moved to the lore repository) - the knowledge-building sibling application (OKF bundles as substrate, same agent constraints, same bridge pattern). Three docs: product vision, research reuse map (the inheritance contract: transfer / adapt / answer alone), and research phase plan (8 steps: OKF serving, prior art, data model, edit sync, framework ruling, spike, governance, closure). The bundle moves to its own repository when one exists; the published KB site does not include it.
 
 ## 2026-09-17
 * **Creation**: [Build phase plan](plans/build-phase.md) - milestones M1–M5 from the verified core-loop spike to v1, with acceptance criteria and dependency edges. Founder rulings recorded in the plan: ToS risk accepted (ACP-only fallback kept for later), Traversable dropped, server-side storage confirmed for v1.

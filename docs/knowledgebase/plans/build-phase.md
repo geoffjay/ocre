@@ -10,10 +10,7 @@ tags:
 status: stable
 generated:
   by: omp-agent/glm-5.3
-  at: "2026-09-17T20:53:42Z"
-verified:
-  by: human:geoff
-  at: "2026-09-17T23:06:33Z"
+  at: "2026-09-20T09:20:00Z"
 sources:
   - id: spike-report
     title: ocre KB - Core-loop spike report (what is already verified)
@@ -77,6 +74,13 @@ anchor stability is untested.
   The spike stays runnable as the reference. Extract roomd's core into
   `internal/room` in the repo root Go module (name `ocre`), and keep the
   web client as an embedded asset.
+* **Address rooms as `(scope, resource)`.** The substrate ruling of
+  2026-09-20 binds M1: key rooms by an opaque scope plus an opaque
+  resource, hold many rooms per scope, and resolve identity and
+  permission at scope level. ocre sets scope to the review and leaves
+  resource empty; lore sets scope to the space and resource to the
+  document. Both apps then share one addressing model before the
+  `roomkit` extraction, so the extraction is a move, not a redesign.
 * **Durable room state.** Store comments, verdicts, and presence
   history server-side (SQLite for v1). A `roomd` restart must not lose
   review state.

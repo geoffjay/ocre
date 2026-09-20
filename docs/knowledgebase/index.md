@@ -66,12 +66,11 @@ to touch the KB on every edit.
 
 ## Sibling projects
 
-* [lore seed bundle](../lore/index.md) - the seed knowledge base for lore, ocre's knowledge-building sibling. It lives at `docs/lore/` temporarily and moves to its own repository. The ocre KB site does not include it.
+* **lore** - ocre's knowledge-building sibling. Its knowledge base moved to the lore repository on 2026-09-19 and is no longer in this repo. The [shared substrate](concepts/design/shared-substrate.md) ruling of 2026-09-20 binds both projects: the common library is `roomkit`.
 
 ## Plans
 
 * [Build phase](plans/build-phase.md) - milestones M1 to M5 from the verified spike to v1; founder rulings recorded, research phase closed.
-* [lore research phase](../lore/plans/research-phase.md) - the plan that turns inherited ocre research into lore's foundation: OKF serving, prior art, data model, edit sync, framework ruling, spike.
 
 ## References
 

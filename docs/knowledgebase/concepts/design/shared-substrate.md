@@ -11,20 +11,34 @@ tags:
 status: draft
 generated:
   by: omp-agent/glm-5.3
-  at: "2026-09-19T16:11:35Z"
+  at: "2026-09-20T09:20:00Z"
 ---
 
 # Shared substrate - a common library for ocre and lore
 
-This is a **proposal, not a decision.** The founder raised the question
-on 2026-09-19: ocre (code review) and lore (knowledge building) share
+**Ruled on 2026-09-20. The proposal was accepted with four
+amendments.** The library is **`roomkit`**, in its own repository. The
+extraction trigger is the second *running* consumer: lore's core-loop
+spike. lore's knowledge base holds the ruling text at
+`decisions/shared-substrate-ruling.md`.
+
+The four amendments the ruling added to the boundary below:
+
+1. Rooms are addressed as `(scope, resource)`, not one room per
+   artifact. ocre's M1 adopts this now.
+2. The anchor lifecycle (base revision, forward mapping, outdated) is
+   substrate; the addressing scheme stays in the app.
+3. Governance mechanism is substrate; governance vocabulary
+   ("verdict", "suggestion") stays in the app.
+4. Attribution and trust ledgers stay in the app.
+
+The original proposal follows. The founder raised the question on
+2026-09-19: ocre (code review) and lore (knowledge building) share
 almost all their platform research and likely much of their code. Is
 there a common library that keeps each app focused on its domain?
 
-The answer proposed here: **yes, but extract on the second need, not
-the first.** The library is justified when lore's spike exists, not
-before. The rest of this doc draws the boundary so both apps build
-toward it from day one.
+The answer proposed, and now ruled: **yes, but extract on the second
+need, not the first.**
 
 ## The family thesis
 
@@ -79,9 +93,9 @@ from the spike into the repo-root Go module. Two options from there:
 
 * **Option A - extract now:** create the substrate repo first, make
   ocre's M1 depend on it.
-* **Option B - extract on second use (proposed):** ocre's M1 stays in
-  the `ocre` module as `internal/room`. lore's spike extracts from it
-  (or from `spike/`) when the second consumer exists. The extraction
+* **Option B - extract on second use (ruled 2026-09-20):** ocre's M1
+  stays in the `ocre` module as `internal/room`. lore's spike extracts
+  from it (or from `spike/`) once that spike runs. The extraction
   boundary is documented here; the code stays app-internal until two
   consumers force the interface to stabilize.
 
@@ -89,15 +103,17 @@ Option B is proposed because premature extraction before a second
 consumer is the classic abstraction-from-one-case failure. The spike
 inventory above is the contract both apps build toward. When the second
 consumer exists, the library moves to its own repository (the ruling
-names it; see the [lore research phase](../../../lore/plans/research-phase.md)).
+names it: `roomkit`).
 
-## What is deliberately deferred
+## Decided by the ruling
 
-* The substrate repository location and name.
+* The repository and name: `roomkit`, in its own repository.
+
+## What is still deferred
 * Whether the web client shares a TS/JS room-protocol package with the
   substrate (the protocol types exist in Go today; a TS mirror would
   serve both apps' front ends).
 * Versioning policy between the substrate and the apps.
 
-These are decided by the framework ruling in the
-[lore research phase](../../../lore/plans/research-phase.md), step 5.
+The ruling left these open. lore's knowledge base records them in
+`decisions/shared-substrate-ruling.md`.
